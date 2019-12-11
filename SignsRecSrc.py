@@ -1,8 +1,9 @@
 import numpy as np
 import cv2
-#face_cascade =cv2.CascadeClassifier('cascades/data/haarcascade_frontalface_alt2.xml')
+
 img=cv2.imread('sign1.jfif')
 nimg=cv2.imread('sign2.jfif')
+
 gimg = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 (thresh, baw) = cv2.threshold(gimg, 127, 255, cv2.THRESH_BINARY)
 hsvimg = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
@@ -29,11 +30,6 @@ matches=sorted(matches,key = lambda x:x.distance)
 
 result=cv2.drawMatches(img,keypoints,nimg,keypoints2,matches[:10],None)
 
-#cv2.imshow('baw',baw)
-#cv2.imshow('sign.jpg',img)
-#cv2.imshow('mask',red_mask )
-#cv2.imshow('red',red)
-#cv2.imshow("ORB kp",img2)
 cv2.imshow('re1',re1)
 cv2.imshow('re2',re2)
 
